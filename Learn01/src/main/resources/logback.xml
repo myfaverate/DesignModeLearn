@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!--配置集中管理属性 我们可以直接更改属性value的值 格式: ${name}-->
+    <property name="pattern"
+              value="%highlight(%date{yyyy-MM-dd HH:mm:ss.SSS}) %cyan([%thread]) %yellow(%-5level) %green(%logger{36}) %boldBlue(method: %M) %boldMagenta(line: %line)  %boldMagenta(%msg%n)"/>
+
+    <appender name="console" class = "ch.qos.logback.core.ConsoleAppender">
+        <!--引用上面的属性 用${name}-->
+        <encoder class = "ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- %red(%date{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %red([%thread]) %boldMagenta(%logger{50}) %cyan(%msg%n) -->
+    <!-- %highlight(%date{yyyy-MM-dd HH:mm:ss.SSS}) %cyan([%thread]) %yellow(%-5level) %green(%logger{36}).%gray(%M)-%boldMagenta(%line) - %blue(%msg%n) -->
+
+    <!--root logger-->
+    <root level = "ALL">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
